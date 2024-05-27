@@ -96,7 +96,7 @@ struct EmpRow {
 let sql_text = "select empno, ename from emp where deptno = 10 and sal >= 1000";
 
 // query the statement as EmpRow.
-for row_result in conn.query_as::<EmpRow>(sql_text, &[])?
+for row_result in conn.query_as::<EmpRow>(sql_text, &[])? {
     let row = row_result?; // row: EmpRow
     println!("empno: {}, ename: {}", row.empno, row.ename);
 }
